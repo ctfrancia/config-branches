@@ -22,5 +22,8 @@
   "homepage": "https://github.com/ctfrancia/config-branches#readme",
   "dependencies": {
     "typescript": "^4.3.2"
+  },
+  "devDependencies": {
+    "jest": "^27.0.3"
   }
 }
