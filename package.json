@@ -1,0 +1,26 @@
+{
+  "name": "config-branches",
+  "version": "1.0.0",
+  "description": "a stand alone package that allows you to use one .env file spread across multiple branches to ensure that there is one code base",
+  "main": "index.ts",
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ctfrancia/config-branches.git"
+  },
+  "keywords": [
+    "env",
+    "config"
+  ],
+  "author": "Christian Francia",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ctfrancia/config-branches/issues"
+  },
+  "homepage": "https://github.com/ctfrancia/config-branches#readme",
+  "dependencies": {
+    "typescript": "^4.3.2"
+  }
+}
