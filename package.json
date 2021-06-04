@@ -4,8 +4,8 @@
   "description": "a stand alone package that allows you to use one .env file spread across multiple branches to ensure that there is one code base",
   "main": "index.ts",
   "scripts": {
-    "start": "ts-node ./index.ts",
-    "test": "test"
+    "start": "ts-node ./src/index.ts",
+    "test": "jest"
   },
   "repository": {
     "type": "git",
@@ -26,8 +26,10 @@
     "typescript": "^4.3.2"
   },
   "devDependencies": {
+    "@types/jest": "^26.0.23",
     "eslint": "^7.27.0",
     "jest": "^27.0.3",
+    "ts-jest": "^27.0.2",
     "ts-node": "^10.0.0"
   }
 }
