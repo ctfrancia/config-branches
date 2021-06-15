@@ -1,4 +1,4 @@
 {
   "branches": ["production", "dev", "sit"],
-  "location": "tests"
+  "location": "tests/configs/"
 }
