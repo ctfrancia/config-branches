@@ -1,0 +1,4 @@
+{
+  "branches": ["production", "dev", "sit"],
+  "location": "tests"
+}

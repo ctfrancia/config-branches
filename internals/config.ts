@@ -1,39 +1,44 @@
-/*
-export function loadConfigFromBranch(branch: string): any { // TODO return value will be the shape of the config file
-  return 
+import { readFile } from 'fs/promises'
+import { resolve } from 'path'
+
+let config = {} 
+
+export function healthCheck(): void {
 }
-*/
 
-export class Config {
-  private config = {}
-
-  public constructor(branch: string) {}
-
-  private get getConfigFile(): any {
-    return this.config
+export async function init(): Promise<void> {
+  const p = getPath()
+  try {
+    await readPath(p)
+    const branch = getBranch()
+  } catch(e) {
+    throw new Error(e)
   }
 
-  private set setConfigfile(config: any) {
-    this.config = config
+}
+
+export function getPath() {
+  return resolve(__dirname, 'branch-config.json')
+}
+
+export async function readPath(p: string): Promise<any | void> {
+  try {
+    return await readFile(p)
+  } catch(e) {
+    switch(e.code) {
+      case 'ENOENT':
+        throw new Error('was unable to locate branch-config.json file please make sure it is in the root folder')
+
+      default:
+        throw new Error(e)
+    }
+  }
+}
+
+export function getBranch(): string | void {
+  if (process.env.BRANCH === undefined) {
+    throw new Error('no BRANCH environment defined')
   }
 
-  public loadConfigFromBranch(): void {
-    // read object based on BRANCH.config[.js | .ts]
-    this.setConfigfile({
-      db : {
-        host: 'localhost',
-        port: 3306,
-        user: 'root',
-        password: 'password1'
-      },
-      redis: {
-        host: 'localhost',
-        port: 6397
-      }
-    })
-  }
-
-  public loadConfigEntity(key: string): any {
-    return this.config[key]
-  }
+  return process.env.BRANCH
 }

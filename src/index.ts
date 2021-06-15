@@ -1,8 +1,9 @@
-import { Config } from '../internals/config'
+import { init } from '../internals/config'
 
-export const config = new Config(process.env.BRANCH)
-/*
-export function loadConfig(): Config {
-  return new Config(process.env.BRANCH)
+export async function config(): Promise<void> {
+  try {
+    await init()
+  } catch(e) {
+    throw new Error(e.message)
+  }
 }
-*/
